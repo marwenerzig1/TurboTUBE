@@ -1,46 +1,31 @@
-pipeline{
-
-	agent any
-
-	environment {
-		DOCKERHUB_CREDENTIALS=credentials('dockerhub-acces')
-	}
-
-	stages {
-		
-	      stage('gitclone') {
-
-			steps {
-				git 'https://github.com/marwenerzig1/TurboTUBE.git'
-			}
-		}
-
-		stage('Build') {
-
-			steps {
-				bat 'docker build -t myapp https://github.com/marwenerzig1/TurboTUBE.git'
-			}
-		}
-
-		stage('Login') {
-
-			steps {
-				bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
-			}
-		}
-
-		stage('Push') {
-
-			steps {
-				bat "docker image push "
-			}
-		}
-	}
-
-	post {
-		always {
-			bat "docker logout"
-		}
-	}
-
+pipeline {
+  agent any
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+  }
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('docker-hub')
+  }
+  stages {
+    stage('Build') {
+      steps {
+        bat 'docker build -t marwenerzig1/Turbotube:v1 .'
+      }
+    }
+    stage('Login') {
+      steps {
+        bat 'docker login -u=%DOCKERHUB_CREDENTIALS_USR% -p=%DOCKERHUB_CREDENTIALS_PSW%'
+      }
+    }
+    stage('Push') {
+      steps {
+        bat 'docker push marwenerzig1/Turbotube:v1'
+      }
+    }
+  }
+  post {
+    always {
+      bat 'docker logout'
+    }
+  }
 }
