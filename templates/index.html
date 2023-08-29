@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>TurboTUBE</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/static/assets/img/logo-page.png" rel="icon">
+  <link href="/static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Satisfy" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- Template Main CSS File -->
+  <link href="/static/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex justify-content-center align-items-center header-transparent">
+    <a href="/" style="text-decoration: none;" class="imgg"><img src="/static/assets/img/logo2.png" width="160px" height=auto alt=""></a>
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+        <li><a class="nav-link scrollto" href="#services">Services</a></li>
+        <li><a class="nav-link scrollto" href="#testimonials">Contact</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <br><br>
+      <h1>YouTube Converter</h1>
+      <h2>The best free and fast YouTube converter in mp3 and mp4 formats!</h2>
+        <!-- ======= Alert ======= -->
+        {% if mesage is defined and mesage %}
+        {% if errorType is defined and errorType %}
+        <div class="alert alert-success alert-dismissible">
+          <script>myFunctionOff();</script>
+          <canvas id="my-canvas"></canvas>
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Success ! </strong> {{ mesage }}
+        </div>
+        {% else  %}
+        <div class="alert alert-danger alert-dismissible">
+          <script>myFunctionOff();</script>
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Danger ! </strong> {{ mesage }}
+        </div>
+        {% endif %}
+        {% endif %}
+        <!-- ======= End Alert ======= -->
+        <div class="containerr">
+          <form action="/" method="post">
+            <i class="bx bx-search" ></i>
+            <input type="text" class="form-control"  id="video_url" name="video_url" placeholder="Paste link here.."/>
+            <select class="custom-select mr-sm-2" name="format" id="format">
+              <option value="mp3">MP3</option>
+              <option value="mp4">MP4</option>
+            </select>
+            <button  onclick="myFunction()" type="submit" class="btn-download" >Download</button>
+          </form>  
+        </div>
+        <br>
+        <h2 style="color: #959b9d;">Enter the url of a YouTube video in the YouTube Converter</h2>
+        <!-- ======= Loading Bar ======= -->
+        <div class="continuous-2" style="visibility : hidden"></div>
+        <!-- ======= End Loading Bar ======= -->
+      <br><br>
+      <a href="#footer" class="btn-scroll scrollto" title="Scroll Down"><i class="bx bx-chevron-down"></i></a>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= My Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-title">
+          <img src="/static/assets/img/logo2.png" width="20%" height="50%" alt="">
+          <br><br><br>
+          <p>Free multi-format YouTube converter . In fact, a real video converter that will convert your favorite videos to MP3 MP4 formats without advertising and compatible with all YouTube MP3 devices or YouTube MP4.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4 class="title"><a href="">YOUTUBE CONVERTER: SPEED</a></h4>
+              <p class="description">YouTube mp3 converter in 1 clicks! Free of charge in the format you have chosen MP3, MP4 and many others!</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4 class="title"><a href="">A YOUTUBE CONVERTER: FREE</a></h4>
+              <p class="description">Fast, free and without advertising this YouTube Converter! Created by a user, for users...</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4 class="title"><a href="">MP3 | MP4 : COMPATIBILITY</a></h4>
+              <p class="description">TurboTube, free MP3 and MP4 converter guarantees you the creation of an MP3, MP4 format compatible with all devices.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-world"></i></div>
+              <h4 class="title"><a href="">MP3 OR MP4: NO REGISTRATION</a></h4>
+              <p class="description">Download a video, to YouTube or other media, we will not ask you to register.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End My Services Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+      <div class="container position-relative">
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+
+
+              <div class="testimonial-item">
+                <img src="/static/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                <h3>Marwene Rzig</h3>
+                <h4>Devops & Developer</h4>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  I am a developer and devops, works with a wide range of frameworks and tools. In addition, I am studying engineering in telecom and software computer.     
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+
+
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+
+    <!-- ======= Contact Me Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Contact Me</span>
+          <h2>Contact Me</h2>
+          <p>Feel free to contact me, if you have any work or job needs.</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-12">
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="info-box">
+                  <i class="bx bx-share-alt"></i>
+                  <h3>Social Profiles</h3>
+                  <div class="social-links">
+                    <a href="https://www.facebook.com/marwene.rzig.5" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/marwenerzig/" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://github.com/marwenerzig1" class="github"><i class="bi bi-github"></i></a>
+                    <a href="https://www.linkedin.com/in/marwene-rzig-5ab28b195/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-box mt-4">
+                  <i class="bx bx-envelope"></i>
+                  <h3>Email Me</h3>
+                  <p><a href = "mailto: marwenerzig4@gmail.com" style="color: black;">marwenerzig4@gmail.com</a></p>
+                  <p><a href = "mailto: marwenerzig4@gmail.com" style="color: black;">rzig.marwene@yahoo.com</a></p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-box mt-4">
+                  <i class="bx bx-phone-call"></i>
+                  <h3>Call Me</h3>
+                  <p><a href=“tel:+21653667475” style="color: black;">+216 53 667 475</a></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Contact Me Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3><span style="color: red;">Turbo</span>TUBE</h3>
+      <p>With TurboTUBE, download YouTube videos in mp3 or mp4 format in an instant. A few clicks will be enough to convert and generate the download link. Retrieve the link from a YouTube video, select the format of your choice and start downloading the file.</p>
+      <div class="copyright">
+        &copy; Copyright <strong><span>TurboTUBE</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/laura-free-creative-bootstrap-theme/ -->
+        Designed by <a href="https://www.linkedin.com/in/marwene-rzig-5ab28b195/">Marwene Rzig</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/static/assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="/static/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/static/assets/js/main.js"></script>
+
+
+  <!-- script of canvas -->
+    <script src="/static/assets/js/index.min.js"></script>
+    <script>
+        var confettiSettings = { target: 'my-canvas' };
+        var confetti = new ConfettiGenerator(confettiSettings);
+        confetti.render();
+        let confe = document.querySelector('#my-canvas');
+        let close = document.querySelector('#my-canvas');
+        btn.onclick = function(){
+            confe.classList.add('active');
+        }
+        close.onclick = function(){
+            confe.classList.remove('active');
+        }
+
+        </script>
+
+<!-- script of loading bar -->
+<script>
+
+  function myFunction(){
+    element = document.querySelector('.continuous-2');
+    element.style.visibility = "visible";
+    element = document.querySelector('.btn-download');
+    element.style.visibility = "hidden";
+  }
+  function myFunctionOff(){
+    element = document.querySelector('.continuous-2');
+    element.style.visibility = "hidden";
+  }
+
+    </script>
+
+    
+</body>
+
+</html>
