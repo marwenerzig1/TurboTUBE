@@ -7,11 +7,18 @@ pipeline{
 	}
 
 	stages {
-	    
+		
+	      stage('gitclone') {
+
+			steps {
+				git 'https://github.com/marwenerzig1/TurboTUBE.git'
+			}
+		}
+
 		stage('Build') {
 
 			steps {
-				bat 'docker build -t turbotube:v1'
+				bat 'docker build -t myapp https://github.com/marwenerzig1/TurboTUBE.git'
 			}
 		}
 
