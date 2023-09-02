@@ -25,8 +25,12 @@ pipeline {
     stage('Pull') {
       steps {
         bat 'docker pull marwenerzig1/turbotube:v1'
+        bat 'docker stop TurboTube' 
+        bat 'docker rm TurboTube' 
+        bat 'docker run -p 5000:5000 --name TurboTube marwenerzig1/turbotube:v1'
       }
     }
+  }
   post {
     always {
       bat 'docker logout'
