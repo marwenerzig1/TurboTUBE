@@ -22,6 +22,17 @@ pipeline {
         bat 'docker push marwenerzig1/turbotube:v1'
       }
     }
+    stage('Pull') {
+      steps {
+        bat 'docker pull marwenerzig1/turbotube:v1'
+      }
+    }
+    stage('cretaion container and run') {
+      steps {
+        bat 'docker stop TurboTube '
+        bat 'docker rm TurboTube '
+        bat 'docker run -p 5000:5000 --name TurboTube marwenerzig1/turbotube:v1'
+      }
   }
   post {
     always {
