@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        bat 'docker build -t marwenerzig1/turbotube:v2 .'
+        bat 'docker build -t marwenerzig1/turbotube:v1 .'
       }
     }
     stage('Login') {
@@ -19,12 +19,12 @@ pipeline {
     }
     stage('Push') {
       steps {
-        bat 'docker push marwenerzig1/turbotube:v2'
+        bat 'docker push marwenerzig1/turbotube:v1'
       }
     }
     stage('Pull') {
       steps {
-        bat 'docker pull marwenerzig1/turbotube:v2'
+        bat 'docker pull marwenerzig1/turbotube:v1'
       }
     }
   post {
