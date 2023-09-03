@@ -19,14 +19,20 @@ pipeline {
     }
     stage('Push') {
       steps {
-        bat 'docker push marwenerzig1/turbotube:v1'
+       // bat 'docker push marwenerzig1/turbotube:v1'
+          echo 'test'        
       }
     }
     stage('Pull') {
       steps {
         bat 'docker pull marwenerzig1/turbotube:v1'
-        bat 'docker stop TurboTube' 
-        bat 'docker rm TurboTube' 
+        try{
+          bat 'docker stop TurboTube' 
+          bat 'docker rm TurboTube' 
+        }
+        catch (Exception e){
+          echo 'Exception occurred: ' + e.toString()
+        }
         bat 'docker run -p 5000:5000 --name TurboTube marwenerzig1/turbotube:v1'
       }
     }
