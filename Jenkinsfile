@@ -30,6 +30,8 @@ pipeline {
     }
     stage('Run') {
       steps {
+         bat 'docker stop TurboTube'
+         bat 'docker rm TurboTube'
          bat 'docker run -p 5000:5000 --name TurboTube -d marwenerzig1/turbotube:v1'
       }
     }
