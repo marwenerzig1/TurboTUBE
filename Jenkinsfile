@@ -33,7 +33,11 @@ pipeline {
         catch (Exception e){
           echo 'Exception occurred: ' + e.toString()
         }
-        bat 'docker run -p 5000:5000 --name TurboTube marwenerzig1/turbotube:v1'
+      }
+    }
+    stage('Run') {
+      steps {
+         bat 'docker run -p 5000:5000 --name TurboTube marwenerzig1/turbotube:v1'
       }
     }
   }
