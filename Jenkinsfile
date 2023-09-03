@@ -30,7 +30,7 @@ pipeline {
     }
     stage('Run') {
       steps {
-         bat 'docker run -p 5000:5000 --name TurboTube marwenerzig1/turbotube:v1'
+         bat 'docker run  -d -p 5000:5000 --name TurboTube marwenerzig1/turbotube:v1'
       }
     }
   }
