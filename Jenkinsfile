@@ -19,8 +19,8 @@ pipeline {
     }
     stage('Push') {
       steps {
-       // bat 'docker push marwenerzig1/turbotube:v1'
-          echo 'test'        
+        // bat 'docker push marwenerzig1/turbotube:v1'
+        echo 'Hello World ! '
       }
     }
     stage('Pull') {
@@ -30,9 +30,13 @@ pipeline {
     }
     stage('Run') {
       steps {
+        try {
          bat 'docker stop TurboTube'
          bat 'docker rm TurboTube'
+        }
+        finally {
          bat 'docker run -p 5000:5000 --name TurboTube -d marwenerzig1/turbotube:v1'
+        }
       }
     }
   }
