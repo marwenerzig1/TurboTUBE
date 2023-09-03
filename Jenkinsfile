@@ -26,13 +26,6 @@ pipeline {
     stage('Pull') {
       steps {
         bat 'docker pull marwenerzig1/turbotube:v1'
-        try {
-          bat 'docker stop TurboTube' 
-          bat 'docker rm TurboTube' 
-        }
-        catch (Exception e){
-          echo 'Exception occurred: ' + e.toString()
-        }
       }
     }
     stage('Run') {
