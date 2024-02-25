@@ -6,7 +6,7 @@
 ###### Technical tools: Flask (python), pytube , docker , docker Hub , jenkins CI/CD , GitHub
 ###### R : I was very pleased with the results, as I had a new challenge in DevOps and gained many new technologies, as well as improving my skills in search ..  
 
-### To run this project : python -m flask --app .\app.py run
+### To run this project : python -m flask --app .\app.py run 
 ### To get more details, watch this video : https://drive.google.com/drive/folders/1QsFc9TsVj4S_szqiYMBLGNAHui9BLhMQ?usp=sharing
 
 ![1693859655310](https://github.com/marwenerzig1/TurboTUBE/assets/86536189/fec94b0c-deb2-48a7-92b1-c51cc5b5067f)
